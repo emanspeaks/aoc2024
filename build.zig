@@ -54,7 +54,9 @@ pub fn build(b: *Build) void {
 
         const install_cmd = b.addInstallArtifact(exe, .{});
 
+        const test_name = b.fmt("test_{s}", .{dayString});
         const build_test = b.addTest(.{
+            .name = test_name,
             .root_source_file = b.path(zigFile),
             .target = target,
             .optimize = mode,
@@ -72,10 +74,17 @@ pub fn build(b: *Build) void {
         }
 
         {
-            const step_key = b.fmt("test_{s}", .{dayString});
             const step_desc = b.fmt("Run tests in {s}", .{zigFile});
-            const step = b.step(step_key, step_desc);
+            const step = b.step(test_name, step_desc);
             step.dependOn(&run_test.step);
+        }
+
+        const install_test_cmd = b.addInstallArtifact(build_test, .{});
+        {
+            const step_key = b.fmt("install_test_{s}", .{dayString});
+            const step_desc = b.fmt("Install test_{s}.exe", .{dayString});
+            const install_test_step = b.step(step_key, step_desc);
+            install_test_step.dependOn(&install_test_cmd.step);
         }
 
         const run_cmd = b.addRunArtifact(exe);

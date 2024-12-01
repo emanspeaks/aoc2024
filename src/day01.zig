@@ -8,13 +8,28 @@ const BitSet = std.DynamicBitSet;
 const util = @import("util.zig");
 const gpa = util.gpa;
 
-const data = @embedFile("data/day01.txt");
+const data_a = @embedFile("data/day01a.txt");
+const data_b = @embedFile("data/day01b.txt");
+const data_a_test = @embedFile("data/day01a_test.txt");
+const data_b_test = @embedFile("data/day01b_test.txt");
 
 pub fn main() !void {
-    print("\nDay 01A:\n", .{});
-    print(data, .{});
-    print("\nDay 01B:\n", .{});
+    print("\nDay 01a:\n", .{});
+    print("Length: {d}\n", .{data_a.len});
+
+    print("\nDay 01b:\n", .{});
+    // print("Length: {d}\n", .{data_b.len});
     print("\n", .{});
+}
+
+const expect = std.testing.expect;
+
+test "always succeeds" {
+    try expect(true);
+}
+
+test "always fails" {
+    try expect(false);
 }
 
 // Useful stdlib functions

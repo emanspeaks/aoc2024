@@ -8,10 +8,18 @@ const BitSet = std.DynamicBitSet;
 const util = @import("util.zig");
 const gpa = util.gpa;
 
-const data = @embedFile("data/day17.txt");
+const data_a = @embedFile("data/day17a.txt");
+const data_b = @embedFile("data/day17b.txt");
+const data_a_test = @embedFile("data/day17a_test.txt");
+const data_b_test = @embedFile("data/day17b_test.txt");
 
 pub fn main() !void {
-    
+    print("\nDay 17a:\n", .{});
+    print("Length: {d}\n", .{data_a.len});
+
+    print("\nDay 17b:\n", .{});
+    // print("Length: {d}\n", .{data_b.len});
+    print("\n", .{});
 }
 
 // Useful stdlib functions
