@@ -8,26 +8,34 @@ const BitSet = std.DynamicBitSet;
 const util = @import("util.zig");
 const gpa = util.gpa;
 
-const data_a = @embedFile("data/day13a.txt");
-const data_b = @embedFile("data/day13b.txt");
 const data_a_test = @embedFile("data/day13a_test.txt");
-const data_b_test = @embedFile("data/day13b_test.txt");
+const data_a = @embedFile("data/day13a.txt");
+// const data_b_test = @embedFile("data/day13b_test.txt");
+// const data_b = @embedFile("data/day13b.txt");
+const data_b_test = "";
+const data_b = "";
 
 pub fn main() !void {
-    print("\nDay 13a:\n", .{});
-    print("Length: {d}\n", .{data_a.len});
+    print("\nDay 13a: {d}\n", .{day13a(data_a)});
+    print("Day 13b: {d}\n", .{day13b(data_b)});
+}
 
-    print("\nDay 13b:\n", .{});
-    // print("Length: {d}\n", .{data_b.len});
-    print("\n", .{});
+fn day13a(input: []const u8) u32 {
+    print("Length: {d}\n", .{input.len});
+    return 0;
+}
+
+fn day13b(input: []const u8) u32 {
+    print("Length: {d}\n", .{input.len});
+    return 0;
 }
 
 test "day13a" {
-    try expect(true);
+    try expect(day13a(data_a_test) == 0);
 }
 
 test "day13b" {
-    try expect(true);
+    try expect(day13b(data_b_test) == 0);
 }
 
 // Useful stdlib functions
