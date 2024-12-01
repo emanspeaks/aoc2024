@@ -22,6 +22,14 @@ pub fn main() !void {
     print("\n", .{});
 }
 
+test "day22a" {
+    try expect(true);
+}
+
+test "day22b" {
+    try expect(true);
+}
+
 // Useful stdlib functions
 const tokenizeAny = std.mem.tokenizeAny;
 const tokenizeSeq = std.mem.tokenizeSequence;
@@ -48,6 +56,8 @@ const assert = std.debug.assert;
 const sort = std.sort.block;
 const asc = std.sort.asc;
 const desc = std.sort.desc;
+
+const expect = std.testing.expect;
 
 // Generated from template/template.zig.
 // Run `zig build generate` to update.
